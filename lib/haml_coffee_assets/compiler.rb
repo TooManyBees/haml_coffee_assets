@@ -21,7 +21,10 @@ module HamlCoffeeAssets
       def compile(name, source, jst = true)
         config = HamlCoffeeAssets.config
 
+        squished_css = MultiJson.dump(defined?(Cssquish) ? Cssquish.class_names.dup : {})
+
         runtime.call('HamlCoffeeAssets.compile', name, source, jst,
+                     squished_css,
                      config.namespace, config.format, config.uglify, config.basename,
                      config.escapeHtml, config.escapeAttributes, config.cleanValue, config.placement, config.dependencies,
                      config.customHtmlEscape, config.customCleanValue,
