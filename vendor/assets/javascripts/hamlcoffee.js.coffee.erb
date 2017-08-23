@@ -2,6 +2,9 @@
 #
 class window.HAML
 
+  @classNameMap: <%= MultiJson.dump(Cssquish.class_names) %>
+  @lookup: (name) -> @classNameMap[name] || name
+
   # HAML Coffee html escape function.
   #
   # @param text [String] the text to escape
