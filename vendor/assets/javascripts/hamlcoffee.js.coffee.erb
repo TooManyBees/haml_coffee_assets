@@ -2,8 +2,11 @@
 #
 class window.HAML
 
-  @classNameMap: <%= MultiJson.dump(Cssquish.class_names) %>
-  @lookup: (name) -> @classNameMap[name] || name
+  # @classNameMap: <%= MultiJson.dump(Cssquish.class_names) %>
+  @lookup: (name) ->
+    console.warn("Looking up squished class for " + name)
+    # @classNameMap[name] || name
+    name
 
   # HAML Coffee html escape function.
   #
